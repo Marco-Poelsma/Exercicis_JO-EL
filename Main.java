@@ -9,16 +9,22 @@ public class Main{
             //Canviar "b" per "v" i "v" per "b"
             String frase = scan.nextLine();
             for (char c : frase.toCharArray()) {
-                if (c == 'b') {
-                    System.out.print('v');
-                } else if (c == 'v') {
-                    System.out.print('b');
-                } else if (c == 'B') {
-                    System.out.print('V');
-                } else if (c == 'V') {
-                    System.out.print('B');
-                } else {
-                    System.out.print(c);
+                switch (c) {
+                    case 'b':
+                        System.out.print('v');
+                        break;
+                    case 'v':
+                        System.out.print('b');
+                        break;
+                    case 'B':
+                        System.out.print('V');
+                        break;
+                    case 'V':
+                        System.out.print('B');
+                        break;
+                    default:
+                        System.out.print(c);
+                        break;
                 }
             }
             System.out.println();
