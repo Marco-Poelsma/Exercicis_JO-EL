@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main{
@@ -7,36 +6,22 @@ public class Main{
         int casos = scan.nextInt();
         scan.nextLine();
         for (int i = 0; i < casos; i++) {
-            //Joc del penjat
-            String paraulaMagica = scan.nextLine();
-            ArrayList<Character> paraula = new ArrayList<>();
-            for (char c : paraulaMagica.toCharArray()) {
-                paraula.add(c);
-            }
-            String endevinances = scan.nextLine();
-            ArrayList<Character> endevina = new ArrayList<>();
-            for (char c : endevinances.toCharArray()) {
-                if (c != ' ') {
-                    endevina.add(c);
-                }
-            }
-            int errors = 0;
-            for (int j = 0; j < endevina.size(); j++) {
-                if (!paraula.contains(endevina.get(j))) {
-                    errors++;
-                }
-            }
-            for (int j = 0; j < paraula.size(); j++) {
-                if (endevina.contains(paraula.get(j))) {
-                    paraula.set(j, endevina.get(endevina.indexOf(paraula.get(j))));
+            //Canviar "b" per "v" i "v" per "b"
+            String frase = scan.nextLine();
+            for (char c : frase.toCharArray()) {
+                if (c == 'b') {
+                    System.out.print('v');
+                } else if (c == 'v') {
+                    System.out.print('b');
+                } else if (c == 'B') {
+                    System.out.print('V');
+                } else if (c == 'V') {
+                    System.out.print('B');
                 } else {
-                    paraula.set(j, '*');
+                    System.out.print(c);
                 }
             }
-            for (char c : paraula) {
-                System.out.print(c);
-            }
-            System.out.println(" " + errors);
+            System.out.println();
         }
         scan.close();
     }
