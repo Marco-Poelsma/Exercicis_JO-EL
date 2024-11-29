@@ -1,42 +1,26 @@
-import java.util.*;
-
-public class terceraPosicio {
+import java.util.Arrays;
+import java.util.Scanner;
+public class francescoVirgolini {
     public static void main(String[] args) {
-    Scanner scan = new Scanner (System.in);
-    int tamany = scan.nextInt();
-    int[][] terreny = new int[tamany][tamany];
-    int pins = scan.nextInt();
-    for (int i = 0; i < pins; i++) {
-        int x = scan.nextInt();
-        int y = scan.nextInt();
-        terreny[x][y] = 1;
-    }
-    //Encontrar cuadrado de máximo tamanyo que no contenga 1
-    int maxTamany = 0;
-    for (int i = 0; i < tamany; i++) {
-            for (int j = 0; j < tamany; j++) {
-                if (terreny[i][j] == 0) {
-                    int tamanyActual = 1;
-                    for (int k = j + 1; k < tamany; k++) {
-                        if (terreny[i][k] == 0) {
-                            tamanyActual++;
-                        } else {
-                            break;
-                        }
-                    }
-                    for (int k = i + 1; k < tamany; k++) {
-                        if (terreny[k][j] == 0) {
-                            tamanyActual++;
-                        } else{
-                            break;
-                        }
-                    }
-        maxTamany = Math.max(maxTamany, tamanyActual);
+        Scanner scan = new Scanner(System.in);
+        int iteracions = scan.nextInt();
+        for (int i = 0; i < iteracions; i++) {
+            int cotxes = scan.nextInt();
+            scan.nextLine();
+            String[] ordre = new String[cotxes];
+            for (int j = 0; j < cotxes; j++) {
+                ordre[j] = scan.nextLine();
             }
+            int index = 1;
+            while (true) {
+                if (ordre[index].equals("Francesco Virgolini")) {
+                    ordre[index] = ordre[index-1];
+                    ordre[index-1] = "Francesco Virgolini";
+                    break;
+                }
+                index++;
+            }
+            System.out.println(Arrays.toString(ordre));
         }
-    }
-    System.out.println(maxTamany);                            
-
-    scan.close();
     }
 }
