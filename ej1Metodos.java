@@ -10,5 +10,6 @@ public class ej1Metodos {
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();
         compteEnrere(n);
+        scan.close();
     }
 }
